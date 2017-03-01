@@ -13,6 +13,7 @@ var app = express();
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/express-demo');
+mongoose.set("debug",true);
 
 /*app.use(function(req,res,next){
 	console.log("Hello World");
