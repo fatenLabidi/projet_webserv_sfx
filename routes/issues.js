@@ -8,6 +8,24 @@ const ObjectId = mongoose.Types.ObjectId;
 /* GET Issues listing. */
 router.get('/', function(req, res, next) {
   let query = Issue.find().sort('status');
+
+  //pagination
+  let page = parseInt(req.query.page,10);
+  if(isNaN(page)|| page < 1){
+    page = 1;
+  }
+
+  let pageSize = parseInt(req.query.pageSize, 10);
+  if(isNaN(pageSize)|| pageSize < 0 || pageSize > 100){
+    page = 100;
+  }
+
+  query = query.skip((page - 1)*pageSize).limit(pageSize);
+
+  res.set('Pagination-Page', page);
+  res.set('Pagination-PageSize', pageSize);
+  res.set('Pagination-Total', res);
+
   if(req.query.userId !== undefined){
     query = query.where("user").equals(req.query.userId);
   }
