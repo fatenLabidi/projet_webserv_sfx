@@ -7,7 +7,8 @@ const issueSchema = new Schema({
   status: {
     type: String,
     required: true,
-    enum :['new', 'inProgress', 'completed', 'canceled']
+    enum :['new', 'inProgress', 'completed', 'canceled'],
+    default: "new"
   },
   description:{
     type: String,
