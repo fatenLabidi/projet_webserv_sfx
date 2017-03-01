@@ -1,7 +1,7 @@
 {
-  "name": "My project",
+  "name": "projet_webserv_sfx",
   "version": "1.0.0",
-  "description": "It is awesome",
-  "title": "My project",
-  "url" : "https://example.com"
+  "description": "Projet de webserv, avec Faten, Simon et Xavier",
+  "title": "CITIZEN APP",
+  "url" : "https://heigvd-webserv-2017-team-6.herokuapp.com/"
 }
