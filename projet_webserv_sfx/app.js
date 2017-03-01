@@ -7,29 +7,8 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var issues = require('./routes/issues');
 
 var app = express();
-
-const mongoose = require('mongoose');
-mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/express-demo');
-mongoose.set("debug",true);
-
-/*app.use(function(req,res,next){
-	console.log("Hello World");
-	//next()
-	res.send("hello world");
-	//next();
-});*/
-
-app.use('/hello', function hello(req, res, next) {
-  res.send('world');
-});
-
-app.post('/ping', function ping(req, res, next) {
-  res.send('pong');
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,7 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/issues', issues);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
