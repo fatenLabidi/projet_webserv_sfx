@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 const User = require('../models/user');
@@ -17,7 +18,7 @@ const ObjectId = mongoose.Types.ObjectId;
  * @apiUse UserNotFoundError
  *
  * @apiExample Example
- *     GET /user/58b2926f5e1def0123e97188 HTTP/1.1
+ *     GET /users/58b2926f5e1def0123e97188 HTTP/1.1
  *
  * @apiSuccessExample 200 OK
  *     HTTP/1.1 200 OK
@@ -127,7 +128,6 @@ router.get('/', function(req, res, next) {
  *     Content-Type: application/json
  *
  *    {
- *       "id": "58b2926f5e1def0123e97188",
  *       "firstName": "John",
  *       "lastName": "Doe",
  *       "role": "citizen",
